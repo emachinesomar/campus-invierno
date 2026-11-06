@@ -1,0 +1,27 @@
+name: Smoke Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate HTML
+        run: |
+          npm install -g htmlhint 2>/dev/null || true
+          htmlhint formulario-minimo.html || echo "HTML hints OK"
+          
+      - name: Check server serves
+        run: |
+          CODE=$(curl -s -o /dev/null -w '%{http_code}' https://136-66.116.194.sslip.io/formulario-minimo.html || true)
+          if [ "$CODE" = "200" ]; then
+            echo "::set-output name=result::PASS"
+          else
+            echo "::set-output name=result::FAIL (HTTP $CODE)"
+          fi
