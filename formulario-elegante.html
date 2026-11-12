@@ -102,7 +102,8 @@
       color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em;
       margin-bottom: 0.5rem;
     }
-    .field input {
+    .field input,
+    .field select {
       width: 100%; padding: 0.875rem 1rem;
       background: var(--bg);
       border: 1px solid var(--border);
@@ -111,9 +112,19 @@
       font: inherit; font-size: 1rem;
       transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
     }
+    .field select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.5rem;
+    }
     .field input::placeholder { color: var(--muted); opacity: 0.6; }
-    .field input:hover { border-color: var(--accent-dim); }
-    .field input:focus {
+    .field input:hover,
+    .field select:hover { border-color: var(--accent-dim); }
+    .field input:focus,
+    .field select:focus {
       outline: none;
       border-color: var(--accent);
       box-shadow: 0 0 0 3px var(--focus-ring);
@@ -205,6 +216,32 @@
 
       <div class="form-row form-row--half">
         <div class="field">
+          <label for="codigoPais">Código de país</label>
+          <select id="codigoPais" name="codigoPais" required autocomplete="tel-country-code">
+            <option value="+34" selected>🇪🇸 España (+34)</option>
+            <option value="+58">🇻🇪 Venezuela (+58)</option>
+            <option value="+1">🇺🇸 EE. UU. / Canadá (+1)</option>
+            <option value="+52">🇲🇽 México (+52)</option>
+            <option value="+57">🇨🇴 Colombia (+57)</option>
+            <option value="+54">🇦🇷 Argentina (+54)</option>
+            <option value="+56">🇨🇱 Chile (+56)</option>
+            <option value="+51">🇵🇪 Perú (+51)</option>
+            <option value="+593">🇪🇨 Ecuador (+593)</option>
+            <option value="+351">🇵🇹 Portugal (+351)</option>
+            <option value="+33">🇫🇷 Francia (+33)</option>
+            <option value="+49">🇩🇪 Alemania (+49)</option>
+            <option value="+39">🇮🇹 Italia (+39)</option>
+            <option value="+44">🇬🇧 Reino Unido (+44)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="codigoPostal">Código postal</label>
+          <input type="text" id="codigoPostal" name="codigoPostal" placeholder="Ej. 28001" required autocomplete="postal-code" pattern="[A-Za-z0-9\s\-]{3,10}" maxlength="10">
+        </div>
+      </div>
+
+      <div class="form-row form-row--half">
+        <div class="field">
           <label for="hijoNombre">Nombre del hijo/a</label>
           <input type="text" id="hijoNombre" name="hijoNombre" placeholder="Nombre del niño/a" required autocomplete="given-name">
         </div>
@@ -274,6 +311,8 @@
           nombre: fd.get('nombre')?.trim(),
           apellido: fd.get('apellido')?.trim(),
           fecha: fd.get('fecha'),
+          codigoPais: fd.get('codigoPais'),
+          codigoPostal: fd.get('codigoPostal')?.trim(),
           hijoNombre: fd.get('hijoNombre')?.trim(),
           hijoDia: fd.get('hijoDia'),
           hijoMes: fd.get('hijoMes'),
@@ -284,8 +323,12 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const data = getFormData();
-        if (!data.nombre || !data.apellido || !data.fecha || !data.hijoNombre) {
+        if (!data.nombre || !data.apellido || !data.fecha || !data.codigoPais || !data.codigoPostal || !data.hijoNombre) {
           showToast('Completa todos los campos obligatorios', false);
+          return;
+        }
+        if (!/^[A-Za-z0-9\s\-]{3,10}$/.test(data.codigoPostal)) {
+          showToast('Código postal inválido', false);
           return;
         }
         if (!validateDateParts(data.hijoDia, data.hijoMes, data.hijoAnio)) {
