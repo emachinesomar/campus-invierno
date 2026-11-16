@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario Familiar</title>
+  <title>Inscripción Actividad Invernal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -46,20 +46,6 @@
       justify-content: center;
       padding: 2rem 1rem;
       line-height: 1.6;
-      /* Animated gradient background */
-      background-image: 
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 211, 238, 0.15), transparent),
-        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(168, 85, 247, 0.12), transparent),
-        radial-gradient(ellipse 50% 30% at 10% 30%, rgba(251, 146, 60, 0.1), transparent);
-      background-attachment: fixed;
-    }
-    @media (prefers-color-scheme: light) {
-      body {
-        background-image: 
-          radial-gradient(ellipse 80% 50% at 50% -20%, rgba(6, 182, 212, 0.12), transparent),
-          radial-gradient(ellipse 60% 40% at 80% 100%, rgba(139, 92, 246, 0.1), transparent),
-          radial-gradient(ellipse 50% 30% at 10% 30%, rgba(249, 115, 22, 0.08), transparent);
-      }
     }
     .form-card {
       width: 100%;
@@ -102,8 +88,7 @@
       color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em;
       margin-bottom: 0.5rem;
     }
-    .field input,
-    .field select {
+    .field input {
       width: 100%; padding: 0.875rem 1rem;
       background: var(--bg);
       border: 1px solid var(--border);
@@ -112,44 +97,25 @@
       font: inherit; font-size: 1rem;
       transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
     }
-    .field select {
-      cursor: pointer;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 0.9rem center;
-      padding-right: 2.5rem;
-    }
     .field input::placeholder { color: var(--muted); opacity: 0.6; }
-    .field input:hover,
-    .field select:hover { border-color: var(--accent-dim); }
-    .field input:focus,
-    .field select:focus {
+    .field input:hover { border-color: var(--accent-dim); }
+    .field input:focus {
       outline: none;
       border-color: var(--accent);
       box-shadow: 0 0 0 3px var(--focus-ring);
     }
-    .field input:invalid { border-color: var(--error); }
+    .field input:invalid:not(:placeholder-shown) { border-color: var(--error); }
     .field input:valid:not(:placeholder-shown) { border-color: var(--success); }
-    .field .hint {
-      position: absolute; right: 1rem; bottom: 0.9rem;
-      font-size: 0.7rem; color: var(--muted); pointer-events: none;
-    }
-    .field--dob { position: relative; }
-    .field--dob .dob-grid {
+    .dob-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;
     }
     @media (max-width: 420px) {
-      .field--dob .dob-grid { grid-template-columns: 1fr; }
+      .dob-grid .dob-part:first-child input { border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+      .field--dob .dob-part:last-child input { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
     }
-    .field--dob .dob-part label { display: none; }
-    .field--dob .dob-part input { text-align: center; }
-    .field--dob .dob-part:first-child input { border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
-    .field--dob .dob-part:last-child input { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
     .actions { display: flex; gap: 0.75rem; margin-top: 2rem; }
     .btn {
-      flex: 1; padding: 0.95rem 1.5rem;
-      border-radius: 10px; border: none;
+      flex: 1; padding: 0.95rem 1.5rem; border-radius: 10px; border: none;
       font: inherit; font-size: 0.95rem; font-weight: 600;
       cursor: pointer; transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
     }
@@ -193,8 +159,8 @@
           <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
         </svg>
       </div>
-      <h1>Registro Familiar</h1>
-      <p>Completa los datos para crear el perfil</p>
+      <h1>Inscripción Actividad Invernal</h1>
+      <p>Completa los datos para crear el perfil familiar</p>
     </header>
 
     <div class="form-grid">
@@ -212,32 +178,6 @@
       <div class="field">
         <label for="fecha">Fecha de registro</label>
         <input type="date" id="fecha" name="fecha" required>
-      </div>
-
-      <div class="form-row form-row--half">
-        <div class="field">
-          <label for="codigoPais">Código de país</label>
-          <select id="codigoPais" name="codigoPais" required autocomplete="tel-country-code">
-            <option value="+34" selected>🇪🇸 España (+34)</option>
-            <option value="+58">🇻🇪 Venezuela (+58)</option>
-            <option value="+1">🇺🇸 EE. UU. / Canadá (+1)</option>
-            <option value="+52">🇲🇽 México (+52)</option>
-            <option value="+57">🇨🇴 Colombia (+57)</option>
-            <option value="+54">🇦🇷 Argentina (+54)</option>
-            <option value="+56">🇨🇱 Chile (+56)</option>
-            <option value="+51">🇵🇪 Perú (+51)</option>
-            <option value="+593">🇪🇨 Ecuador (+593)</option>
-            <option value="+351">🇵🇹 Portugal (+351)</option>
-            <option value="+33">🇫🇷 Francia (+33)</option>
-            <option value="+49">🇩🇪 Alemania (+49)</option>
-            <option value="+39">🇮🇹 Italia (+39)</option>
-            <option value="+44">🇬🇧 Reino Unido (+44)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="codigoPostal">Código postal</label>
-          <input type="text" id="codigoPostal" name="codigoPostal" placeholder="Ej. 28001" required autocomplete="postal-code" pattern="[A-Za-z0-9\s\-]{3,10}" maxlength="10">
-        </div>
       </div>
 
       <div class="form-row form-row--half">
@@ -270,13 +210,6 @@
       <button type="submit" class="btn btn--primary" id="btnEnviar">Guardar registro</button>
     </div>
   </form>
-
-  <div class="toast" id="toast" role="status" aria-live="polite">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toast-icon">
-      <polyline points="20 6 9 17 4 12"></polyline>
-    </svg>
-    <span id="toastMsg">Registro guardado correctamente</span>
-  </div>
 
   <script>
     (function() {
@@ -311,8 +244,6 @@
           nombre: fd.get('nombre')?.trim(),
           apellido: fd.get('apellido')?.trim(),
           fecha: fd.get('fecha'),
-          codigoPais: fd.get('codigoPais'),
-          codigoPostal: fd.get('codigoPostal')?.trim(),
           hijoNombre: fd.get('hijoNombre')?.trim(),
           hijoDia: fd.get('hijoDia'),
           hijoMes: fd.get('hijoMes'),
@@ -323,12 +254,8 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const data = getFormData();
-        if (!data.nombre || !data.apellido || !data.fecha || !data.codigoPais || !data.codigoPostal || !data.hijoNombre) {
+        if (!data.nombre || !data.apellido || !data.fecha || !data.hijoNombre) {
           showToast('Completa todos los campos obligatorios', false);
-          return;
-        }
-        if (!/^[A-Za-z0-9\s\-]{3,10}$/.test(data.codigoPostal)) {
-          showToast('Código postal inválido', false);
           return;
         }
         if (!validateDateParts(data.hijoDia, data.hijoMes, data.hijoAnio)) {
