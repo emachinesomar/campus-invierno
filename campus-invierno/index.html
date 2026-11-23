@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VII Campus de Invierno - Inscripción</title>
+  <meta name="description" content="Inscripción al VII Campus de Invierno Sembrando Futuro en Garrucha, Almería">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Merriweather:opsz,wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="topbar" aria-label="Navegación principal">
+    <div class="topbar__inner">
+      <a href="#" class="topbar__logo" aria-label="Instituto Bahá'í Garrucha">
+        <span class="topbar__logo-icon" aria-hidden="true">❄</span>
+        <span class="topbar__logo-text">Instituto Bahá'í</span>
+        <span class="topbar__logo-sub">Garrucha</span>
+      </a>
+      <button type="button" class="topbar__theme-toggle" id="themeToggle" aria-label="Cambiar entre modo claro y oscuro" aria-pressed="false">
+        <span class="topbar__theme-icon" id="themeIcon" aria-hidden="true">🌙</span>
+        <span class="topbar__theme-label" id="themeLabel">Modo oscuro</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <section class="hero-section">
+      <div class="hero__container">
+        <span class="hero__badge">Edición Navidad · Garrucha, Almería</span>
+        <h1 class="hero__title">VII Campus de Invierno</span>
+        <p class="hero__lead">
+          Un espacio comunitario de crecimiento, amistad, valores y servicio para niños, adolescentes y familias durante las vacaciones de invierno.
+        </p>
+      </div>
+    </section>
+
+    <section class="info-cards">
+      <div class="cards__wrapper">
+        <article class="info__card info__card--primary">
+          <div class="card__header">
+            <span class="card__tag">Metodología</span>
+            <h3 class="card__title">Instituto Ruhí de Capacitación</h3>
+          </div>
+          <div class="card__body">
+            <p class="card__text">
+              Este Campus de Invierno se realiza bajo las ideas pedagógicas del Instituto Ruhí, que cree en la nobleza del ser humano por naturaleza y desarrolla la capacidad de ayudar y servir a otros mientras se reflexiona cada día cómo ser un ciudadano más útil para su comunidad.
+            </p>
+            <ul class="card__list">
+              <li><strong>Nobleza humana:</strong> por naturaleza, sin condiciones externas</li>
+              <li><strong>Servicio a otros:</strong> desarrollar la capacidad de ayudar y servir</li>
+              <li><strong>Reflexión diaria:</strong> ciudadanía más útil para la comunidad</li>
+              <li><strong>Igualdad:</strong> acompañamiento desde posición de equidad, sin maestros verticales</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="info__card info__card--secondary">
+          <div class="card__header">
+            <span class="card__tag">Programa Infantil</span>
+            <h3 class="card__title">Niños (Etapa Infantil y Primaria)</h3>
+          </div>
+          <div class="card__body">
+            <ul class="card__list card__list--inline">
+              <li>Mindfulness y conexión</li>
+              <li>Reflexión sobre valores (amor, unidad, amistad)</li>
+              <li>Canciones y juegos</li>
+              <li>Actividades artísticas y creatividad</li>
+              <li>Talleres por familias y vecinos</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="info__card info__card--tertiary">
+          <div class="card__header">
+            <span class="card__tag">Programa Juvenil</span>
+            <h3 class="card__title">Adolescentes (Prejóvenes y Jóvenes)</h3>
+          </div>
+          <div class="card__body">
+            <ul class="card__list card__list--inline">
+              <li>Mindfulness y conexión</li>
+              <li>Canciones, juegos y deporte</li>
+              <li>Reflexiones morales a través de historias</li>
+              <li>Servicio comunitario y dinamización</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="form-layout">
+      <aside class="form-aside" aria-label="Panel lateral de resumen">
+        <div class="aside__card">
+          <h2 class="aside__title">Resumen de Inscripción</h2>
+          <p class="aside__hint">Completa las 7 secciones para generar tu localizador.</p>
+
+          <ol class="progress-steps" id="progressSteps">
+            <li><a href="#sec-1" class="step active"><span>1</span> Participantes</a></li>
+            <li><a href="#sec-2" class="step"><span>2</span> Tutor / Legal</a></li>
+            <li><a href="#sec-3" class="step"><span>3</span> Voluntariado</a></li>
+            <li><a href="#sec-4" class="step"><span>4</span> Salud y Talleres</a></li>
+            <li><a href="#sec-5" class="step"><span>5</span> Materiales y Aporte</a></li>
+            <li><a href="#sec-6" class="step"><span>6</span> Compromisos</a></li>
+            <li><a href="#sec-7" class="step"><span>7</span> Seguridad y Envío</a></li>
+          </ol>
+
+          <div class="live-summary" id="liveSummary">
+            <div class="summary__row">
+              <span>Participantes</span>
+              <strong class="summary__value" id="sumCount">1</strong>
+            </div>
+            <div class="summary__row">
+              <span>Materiales (5€/part.)</span>
+              <strong class="summary__value" id="sumMaterial">5€</strong>
+            </div>
+            <div class="summary__row">
+              <span>Donación extra</span>
+              <strong class="summary__value" id="sumDonation">0€</strong>
+            </div>
+            <div class="summary__total">
+              <span>Total estimado</span>
+              <strong class="summary__value" id="sumTotal">5€</strong>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <form class="main-form" id="mainForm" novalidate>
+        <!-- Campo anti-bot honeypot -->
+        <div class="hp-field" aria-hidden="true">
+          <input type="text" id="hp-field" name="hp-field" tabindex="-1" autocomplete="off">
+        </div>
+
+        <!-- SECCIÓN 1: Participantes -->
+        <section class="form__section" id="sec-1" aria-labelledby="sec-1-title">
+          <div class="section__header">
+            <span class="section__indicator">01</span>
+            <h2 class="section__title" id="sec-1-title">Participantes y Grupos de Edad</h2>
+            <p class="section__desc">Puedes inscribir a uno o varios participantes en esta misma solicitud.</p>
+          </div>
+
+          <div class="policy__reminder">
+            <strong>Etapas y política de acompañamiento:</strong>
+            <ul>
+              <li><strong>Etapa Infantil (3–5 años):</strong> Acompañado obligatoriamente de un adulto las 5 horas del campus.</li>
+              <li><strong>1º a 3º de Primaria:</strong> Asistencia autónoma (se quedan solos).</li>
+              <li><strong>4º a 5º de Primaria:</strong> Asistencia autónoma (se quedan solos).</li>
+              <li><strong>6º de Primaria a 3º de la ESO:</strong> Asistencia autónoma con dinámicas adaptadas.</li>
+              <li><strong>A partir de 4º de la ESO:</strong> Grupo de voluntariado, dinamización y formación.</li>
+            </ul>
+          </div>
+
+          <div class="participants__grid" id="participantsGrid"></div>
+
+          <button type="button" class="btn-add-participant" id="addParticipantBtn">
+            + Añadir otro participante
+          </button>
+        </section>
+
+        <!-- SECCIÓN 2: Datos del Tutor -->
+        <section class="form__section" id="sec-2" aria-labelledby="sec-2-title">
+          <div class="section__header">
+            <span class="section__indicator">02</span>
+            <h2 class="section__title" id="sec-2-title">Datos del Tutor / Responsable Legal</h2>
+            <p class="section__desc">Persona de contacto para avisos, emergencias y autorizaciones.</p>
+          </div>
+
+          <div class="form__grid-two">
+            <div class="form__group">
+              <label for="tutor-nombre" class="form__label">Nombre y Apellidos del Tutor/a o Representante <span class="form__required">*</span></label>
+              <input type="text" id="tutor-nombre" name="tutor-nombre" placeholder="Ej. María Josefa González Pérez" required autocomplete="name">
+            </div>
+
+            <div class="form__group">
+              <label for="tutor-dni" class="form__label">Documento de Identidad (DNI / NIE / Pasaporte) <span class="form__required">*</span></label>
+              <input type="text" id="tutor-dni" name="tutor-dni" placeholder="12345678X o Y1234567Z" required minlength="6">
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label for="tutor-telefono" class="form__label">Teléfono de Contacto (Móvil) <span class="form__required">*</span></label>
+            <input type="tel" id="tutor-telefono" name="tutor-telefono" placeholder="612 34 56 78" required autocomplete="tel">
+          </div>
+
+          <div class="form__group">
+            <label for="tutor-email" class="form__label">Correo Electrónico (Para recibir la confirmación) <span class="form__required">*</span></label>
+            <input type="email" id="tutor-email" name="tutor-email" placeholder="tucorreo@ejemplo.com" required autocomplete="email">
+          </div>
+        </section>
+
+        <!-- SECCIÓN 3: Voluntariado -->
+        <section class="form__section" id="sec-3" aria-labelledby="sec-3-title">
+          <div class="section__header">
+            <span class="section__indicator">03</span>
+            <h2 class="section__title" id="sec-3-title">Espacio de Voluntariado</h2>
+            <p class="section__desc">¿Quieres ser voluntario/a o colaborar como padre o joven durante el campus?</p>
+          </div>
+
+          <div class="voluntary__option">
+            <input type="checkbox" id="voluntario-check" name="voluntario-check" class="voluntary__input">
+            <label for="voluntario-check" class="voluntary__label">
+              ¡Sí, deseo colaborar como voluntario/a (padre, madre o joven colaborador)!
+            </label>
+          </div>
+
+          <div class="days-selection" id="daysSelection" hidden>
+            <p class="days-counter" id="daysCounter">0 días seleccionados</p>
+            <div class="days-grid" id="daysGrid">
+              <label class="day-chip" data-day="23">
+                <input type="checkbox" name="voluntario-dias[]" value="23 Diciembre">
+                <span><strong>23 Dic</strong><small>Lunes · Día 1</small></span>
+              </label>
+              <label class="day-chip" data-day="24">
+                <input type="checkbox" name="voluntario-dias[]" value="24 Diciembre">
+                <span><strong>24 Dic</strong><small>Martes · Día 2</small></span>
+              </label>
+              <label class="day-chip" data-day="28">
+                <input type="checkbox" name="voluntario-dias[]" value="28 Diciembre">
+                <span><strong>28 Dic</strong><small>Sábado · Día 3</small></span>
+              </label>
+              <label class="day-chip" data-day="29">
+                <input type="checkbox" name="voluntario-dias[]" value="29 Diciembre">
+                <span><strong>29 Dic</strong><small>Domingo · Día 4</small></span>
+              </label>
+              <label class="day-chip" data-day="30">
+                <input type="checkbox" name="voluntario-dias[]" value="30 Diciembre">
+                <span><strong>30 Dic</strong><small>Fin campus (17h)</small></span>
+              </label>
+              <label class="day-chip day-chip--all" data-day="todos">
+                <input type="checkbox" id="voluntario-todos" name="voluntario-dias[]">
+                <span><strong>Todos los días</strong><small>Campus completo</small></span>
+              </label>
+            </div>
+
+            <div class="voluntary-observation">
+              <label for="voluntario-datos" class="form__label">Nombre de la persona voluntaria y observaciones</label>
+              <textarea id="voluntario-datos" name="voluntario-datos" rows="3" placeholder="Ej. Carlos (joven 16 años, apoyo en dinámicas) o Nuria (madre, apoyo 23 y 24 dic)..."></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 4: Salud y Talleres -->
+        <section class="form__section" id="sec-4" aria-labelledby="sec-4-title">
+          <div class="section__header">
+            <span class="section__indicator">04</span>
+            <h2 class="section__title" id="sec-4-title">Salud y Talleres</h2>
+            <p class="section__desc">Detalles logísticos importantes sobre alergias, salud y propuestas de talleres.</p>
+          </div>
+
+          <div class="form__grid-two">
+            <div class="form__group form__group--full">
+              <label for="medicas" class="form__label">Cuestiones Médicas, Intolerancias o Alergias Alimentarias</label>
+              <textarea id="medicas" name="medicas" rows="3" placeholder="Indica si algún participante tiene alergias, intolerancias alimentarias o medicación relevante (o escribe 'Ninguna')."></textarea>
+            </div>
+
+            <div class="form__group form__group--full">
+              <label for="taller" class="form__label">¿Deseas ofrecer un taller o talento durante el campus? (Opcional)</label>
+              <textarea id="taller" name="taller" rows="3" placeholder="Nombre del taller (arte, música, ciencia, manualidades, juegos), tiempo estimado, materiales o día preferido..."></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 5: Materiales y Donaciones -->
+        <section class="form__section" id="sec-5" aria-labelledby="sec-5-title">
+          <div class="section__header">
+            <span class="section__indicator">05</span>
+            <h2 class="section__title" id="sec-5-title">Coste de Materiales y Donaciones</h2>
+            <p class="section__desc">Transparencia para una actividad 100% voluntaria y sin ánimo de lucro.</p>
+          </div>
+
+          <div class="transparency__notice">
+            <strong>100% Voluntario y Sin Ánimo de Lucro</strong>
+            <p>Todo el equipo de monitores participamos de manera 100 % voluntaria y sin ánimo de lucro. La actividad en sí no tiene un precio de matrícula, pero cada plaza conlleva un coste real de unos <strong>5 € por persona en materiales</strong>. Tu aportación sugerida y cualquier donativo extra hacen viable el campus.</p>
+          </div>
+
+          <div class="donation__selector">
+            <div class="donation__group">
+              <label for="donacion-select" class="donation__label">Donación voluntaria para el proyecto</label>
+              <select id="donacion-select" name="donacion-select" class="donation__select">
+                <option value="0">0€ (Solo material)</option>
+                <option value="5">5€ (Aportación solidaria)</option>
+                <option value="10">10€ (Apoyo voluntario recomendado)</option>
+                <option value="20">20€ (Gran apoyo a la asociación)</option>
+                <option value="otro">Otro importe...</option>
+              </select>
+            </div>
+
+            <div class="donation__custom" id="donacionCustom" hidden>
+              <label for="donacion-custom" class="donation__label">Importe personalizado (€)</label>
+              <input type="number" id="donacion-custom" min="0" step="1" placeholder="Introduce importe en €" class="donation__input">
+            </div>
+          </div>
+
+          <div class="cost__breakdown">
+            <span class="breakdown__label">Material (<strong id="formPartCount">1</strong> part. × 5€):</span>
+            <span class="breakdown__amount"><strong id="formMatCost">5€</strong></span>
+            <span class="breakdown__total">Total Aporte Estimado: <strong id="formTotalCost">5€</strong></span>
+          </div>
+
+          <fieldset class="radio__fieldset">
+            <legend>Método de pago / aportación previsto</legend>
+            <div class="radio__options">
+              <label class="radio__option">
+                <input type="radio" name="metodo-pago" value="bizum" checked>
+                <div class="radio__content">
+                  <strong>Bizum previo al campus</strong>
+                  <span>A Eliana B.R. al <strong>634541119</strong></span>
+                </div>
+              </label>
+              <label class="radio__option">
+                <input type="radio" name="metodo-pago" value="efectivo">
+                <div class="radio__content">
+                  <strong>En efectivo el primer día</strong>
+                  <span>Acudiendo 15 minutos antes del inicio.</span>
+                </div>
+              </label>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- SECCIÓN 6: Compromisos y Autorizaciones -->
+        <section class="form__section" id="sec-6" aria-labelledby="sec-6-title">
+          <div class="section__header">
+            <span class="section__indicator">06</span>
+            <h2 class="section__title" id="sec-6-title">Compromisos y Autorizaciones</h2>
+            <p class="section__desc">Normativa de convivencia, autorizaciones sanitarias y uso de imágenes.</p>
+          </div>
+
+          <div class="convivencia__panel">
+            <details class="convivencia__details">
+              <summary class="details__summary">Ver Código de Convivencia y Respeto Mutuo</summary>
+              <ul class="details__list">
+                <li><strong>Respeto y cortesía:</strong> Tratar a todos con amabilidad, espíritu de amistad y escucha activa.</li>
+                <li><strong>Unidad e inclusión:</strong> Promover un ambiente libre de exclusiones, chismes o conductas inadecuadas.</li>
+                <li><strong>Cuidado de las instalaciones:</strong> Mantener limpios y ordenados los espacios comunes y salas compartidas.</li>
+                <li><strong>Uso responsable del móvil:</strong> Para favorecer la convivencia, los móviles solo se usarán en los descansos o emergencias.</li>
+                <li><strong>Espíritu de aprendizaje:</strong> Participar con humildad, generosidad y vocación de servicio a la comunidad.</li>
+              </ul>
+            </details>
+          </div>
+
+          <div class="checks__container">
+            <label class="check-stacked">
+              <input type="checkbox" id="compromiso" name="compromiso" class="check-input" required>
+              <span class="check-custom check-icon"></span>
+              <span class="check-label">He leído y me comprometo a cumplir (y que los participantes cumplan) los compromisos de convivencia. <span class="form__required">*</span></span>
+            </label>
+
+            <label class="check-stacked">
+              <input type="checkbox" id="check-camiseta" name="check-camiseta" class="check-input" required>
+              <span class="check-custom check-icon"></span>
+              <span class="check-label">Compromiso de vestimenta: Los participantes asistirán con ropa cómoda apta para manualidades y actividades prácticas. <span class="form__required">*</span></span>
+            </label>
+
+            <label class="check-stacked check-stacked--infantil" id="infantilCheckWrap" hidden>
+              <input type="checkbox" id="check-infantil" name="check-infantil" class="check-input">
+              <span class="check-custom check-icon"></span>
+              <span class="check-label">Compromiso obligatorio Etapa Infantil: Entiendo y acepto que el menor de etapa infantil asistirá permanentemente acompañado de un adulto las 5 horas del campus. <span class="form__required">*</span></span>
+            </label>
+          </div>
+
+          <div class="auth__options">
+            <fieldset class="fieldset__fieldset">
+              <legend class="fieldset__legend">Autorización para toma y uso de imágenes / vídeos sin fines de lucro <span class="form__required">*</span></legend>
+              <p class="fieldset__help">Exclusivamente para memorias comunitarias, material educativo y difusión de actividades de la asociación.</p>
+              <div class="radio__rills">
+                <label class="radio__pill">
+                  <input type="radio" name="autoriza-imagen" value="si" required>
+                  <span>Sí, autorizo</span>
+                </label>
+                <label class="radio__pill">
+                  <input type="radio" name="autoriza-imagen" value="no">
+                  <span>No autorizo</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset__fieldset">
+              <legend class="fieldset__legend">Autorización de participación en el campus <span class="form__required">*</span></legend>
+              <p class="fieldset__help">Autorizo la asistencia y participación activa del menor en las actividades, dinámicas y talleres del campus.</p>
+              <div class="radio__rills">
+                <label class="radio__pill">
+                  <input type="radio" name="autoriza-participacion" id="autoriza-part-si" value="si" required>
+                  <span>Sí, autorizo</span>
+                </label>
+                <label class="radio__pill">
+                  <input type="radio" name="autoriza-participacion" id="autoriza-part-no" value="no">
+                  <span>No autorizo</span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 7: Verificación Anti-Bot -->
+        <section class="form__section" id="sec-7" aria-labelledby="sec-7-title">
+          <div class="section__header">
+            <span class="section__indicator">07</span>
+            <h2 class="section__title" id="sec-7-title">Verificación de Seguridad Anti-Bot</h2>
+            <p class="section__desc">Introduce el código visual para comprobar que eres una persona y evitar envíos automatizados.</p>
+          </div>
+
+          <div class="captcha__container">
+            <div class="captcha__display" id="captchaDisplay" aria-live="polite">----</div>
+            <button type="button" class="btn-captcha" id="refreshCaptchaBtn">Nuevo código</button>
+            <div class="captcha__input-wrapper">
+              <label for="captchaInput" class="captcha-label">Código de seguridad anti-bot <span class="form__required">*</span></label>
+              <input type="text" id="captchaInput" name="captchaInput" placeholder="Escribe el código aquí" required autocomplete="off">
+            </div>
+          </div>
+          <p class="error-msg" id="captchaError" hidden>El código de seguridad no coincide. Por favor, compruébalo e inténtalo de nuevo.</p>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit" id="submitBtn">Completar Inscripción</button>
+            <button type="button" class="btn-reset" id="resetBtn">Limpiar datos del formulario y empezar de nuevo</button>
+          </div>
+          <p class="privacy__note">Tus datos se transmiten de forma segura para la coordinación del campus.</p>
+        </section>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__content">
+      <p><strong>VII Campus de Invierno</strong></p>
+      <p>Organiza: Instituto Bahá'í de Capacitación para el Desarrollo Comunitario · Garrucha</p>
+      <p>Contacto de coordinación: <a href="mailto:ael.garrucha@bahai.es">ael.garrucha@bahai.es</a></p>
+    </div>
+  </footer>
+
+  <!-- Confirm Dialog -->
+  <dialog class="confirm-dialog" id="confirmDialog" aria-labelledby="dialogTitle">
+    <div class="confirm-dialog__inner">
+      <div class="confirm-dialog__header">
+        <div class="confirm-dialog__badge" aria-hidden="true">✓</div>
+        <h2 class="confirm-dialog__title" id="dialogTitle">¡Inscripción Registrada!</h2>
+      </div>
+      <div class="confirm-dialog__content">
+        <p>Hemos registrado tu solicitud correctamente para el VII Campus de Invierno en Garrucha.</p>
+
+        <div class="locator-info">
+          <span>Tu Localizador Único:</span>
+          <strong class="locator-code" id="locatorCode">NAV-26-0000</strong>
+          <small>Conserva este código como referencia para cualquier consulta o para el concepto de tu aportación.</small>
+        </div>
+
+        <div class="bizum-info" id="bizumInfo">
+          <p>Si escogiste <strong>Bizum</strong>, envía tu aportación (<strong id="dialogTotal">5€</strong>) al número: <strong>634541119</strong> (Eliana B.R.)</p>
+          <button type="button" class="btn-copy-bizum" id="copyBizumBtn">Copiar Teléfono</button>
+        </div>
+      </div>
+
+      <div class="confirm-dialog__actions">
+        <button type="button" class="btn-confirm" id="closeDialogBtn">Entendido y Cerrar</button>
+        <button type="button" class="btn-confirm btn-confirm--secondary" id="newRegBtn">Realizar otra inscripción</button>
+      </div>
+    </dialog>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
