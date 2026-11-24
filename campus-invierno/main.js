@@ -287,7 +287,7 @@
 
   function resetAll() {
     form.reset();
-    participantsGrid.innerHTML = '';
+    participantsGrid.replaceChildren();
     createParticipant();
     daysSelection.hidden = true;
     donacionCustom.hidden = true;
