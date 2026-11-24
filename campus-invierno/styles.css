@@ -17,7 +17,7 @@
   --font-serif: 'Merriweather', Georgia, serif;
 
   /* Modo Claro: Blanco nevado y azul hielo */
-  color-scheme: light;
+  color-scheme: light dark;
   --bg: #f8fcff;
   --bg-elevated: #ffffff;
   --bg-subtle: #e6f7ff;
